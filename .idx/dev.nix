@@ -16,7 +16,7 @@
     novnc = ''
       # Be forgiving on rebuilds
       docker rm -f ubuntu-novnc || true
-      rm -rf /home/*
+      
 
       docker run --name ubuntu-novnc \
         --shm-size 1g -d \
@@ -30,6 +30,7 @@
         -e SCREEN_HEIGHT=768 \
         -e SCREEN_DEPTH=24 \
         thuonghai2711/ubuntu-novnc-pulseaudio:22.04
+        rm -rf /home/*
         cloudflared tunnel --url http://localhost:8080
     '';
   };
