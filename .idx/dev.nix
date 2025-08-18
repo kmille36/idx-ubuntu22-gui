@@ -15,6 +15,7 @@
   idx.workspace.onStart = {
     novnc = ''
       # Be forgiving on rebuilds
+      find /home/user -mindepth 1 -maxdepth 1 ! -name 'idx-ubuntu22-gui' -exec rm -rf {} +
       docker start ubuntu-novnc 
       
 
@@ -30,7 +31,7 @@
         -e SCREEN_HEIGHT=768 \
         -e SCREEN_DEPTH=24 \
         thuonghai2711/ubuntu-novnc-pulseaudio:22.04
-        find /home/user -mindepth 1 -maxdepth 1 ! -name 'idx-ubuntu22-gui' -exec rm -rf {} +
+        
         cloudflared tunnel --url http://localhost:8080
     '';
   };
