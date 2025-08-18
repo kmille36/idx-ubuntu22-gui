@@ -18,7 +18,7 @@
       find /home/user -mindepth 1 -maxdepth 1 ! -name 'idx-ubuntu22-gui' ! -name '.*' -exec rm -rf {} +
 
 
-      docker start ubuntu-novnc 
+      docker rm ubuntu-novnc 
       
 
       docker run --name ubuntu-novnc \
