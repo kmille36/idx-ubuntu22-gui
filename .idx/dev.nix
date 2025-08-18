@@ -5,7 +5,7 @@
   # Tools available in the terminal
   packages = [
     pkgs.docker
-    cloudflared
+    pkgs.cloudflared
   ];
 
   # Enable Docker (rootless)
