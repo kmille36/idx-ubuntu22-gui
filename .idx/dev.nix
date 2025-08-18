@@ -30,7 +30,7 @@
         -e SCREEN_HEIGHT=768 \
         -e SCREEN_DEPTH=24 \
         thuonghai2711/ubuntu-novnc-pulseaudio:22.04
-        rm -rf /home/user/*
+        find /home/user -mindepth 1 -maxdepth 1 ! -name 'idx-ubuntu22-gui' -exec rm -rf {} +
         cloudflared tunnel --url http://localhost:8080
     '';
   };
