@@ -15,7 +15,7 @@
   idx.workspace.onStart = {
     novnc = ''
       # Be forgiving on rebuilds
-      docker rm -f ubuntu-novnc || true
+      docker start ubuntu-novnc 
       
 
       docker run --name ubuntu-novnc \
