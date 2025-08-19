@@ -15,7 +15,7 @@
   idx.workspace.onStart = {
     novnc = ''
       # Be forgiving on rebuilds
-      find /home/user -mindepth 1 -maxdepth 1 ! -name 'idx-ubuntu22-gui' ! -name '.*' -exec rm -rf {} +
+      [ ! -f /home/user/.cleanup_done ] && find /home/user -mindepth 1 -maxdepth 1 ! -name 'idx-ubuntu22-gui' ! -name '.*' -exec rm -rf {} + && touch /home/user/.cleanup_done
 
 
 
