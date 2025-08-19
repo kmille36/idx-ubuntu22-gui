@@ -19,7 +19,7 @@
 
 
 
-      docker rm ubuntu-novnc 
+      docker start ubuntu-novnc 
       
 
       docker run --name ubuntu-novnc \
