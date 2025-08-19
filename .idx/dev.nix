@@ -36,7 +36,7 @@
         -e SCREEN_DEPTH=24 \
         thuonghai2711/ubuntu-novnc-pulseaudio:22.04
 
-        docker exec -it ubuntu-novnc bash -c "apt update && apt remove firefox -y && apt install -y wget && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && apt install -y ./google-chrome-stable_current_amd64.deb"
+        docker exec -it ubuntu-novnc bash -c "sudo apt update && sudo apt remove firefox -y && sudo apt install -y wget && sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt install -y ./google-chrome-stable_current_amd64.deb"
 
         
         cloudflared tunnel --url http://localhost:8080
