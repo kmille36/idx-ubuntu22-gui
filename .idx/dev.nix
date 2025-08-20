@@ -48,12 +48,11 @@
   # (Optional) show a preview tile in the UI – the app already runs via onStart,
   # so we just keep a harmless long-lived command.
   idx.previews = {
-    enable = true;
-    previews = {
-      novnc = {
-        command = [ "bash" "-lc" "echo 'noVNC on port 8080'; tail -f /dev/null" ];
-        manager = "terminal";
-      };
+  enable = true;
+  previews = {
+    novnc = {
+      manager = "web";
+      url = "http://localhost:8080";
     };
   };
-}
+};
