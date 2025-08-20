@@ -22,6 +22,8 @@
         touch /home/user/.cleanup_done
       fi
 
+      docker rm ubuntu-novnc 
+
       # Create the container if missing; otherwise start it
       if ! docker ps -a --format '{{.Names}}' | grep -qx 'ubuntu-novnc'; then
         docker run --name ubuntu-novnc \
