@@ -52,7 +52,7 @@
     previews = {
       novnc = {
         command = [ "bash" "-lc" "echo 'noVNC on port 8080'; tail -f /dev/null" ];
-        manager = "web";
+        manager = "terminal";
       };
     };
   };
