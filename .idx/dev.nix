@@ -18,11 +18,11 @@
       # One-time cleanup
       if [ ! -f /home/user/.cleanup_done ]; then
         rm -rf /home/user/.gradle/* /home/user/.emu/*
-        find /home/user -mindepth 1 -maxdepth 1 ! -name 'idx-ubuntu22-gui' ! -name '.*' -exec rm -rf {} +
+        #find /home/user -mindepth 1 -maxdepth 1 ! -name 'idx-ubuntu22-gui' ! -name '.*' -exec rm -rf {} +
         touch /home/user/.cleanup_done
       fi
 
-      docker rm ubuntu-novnc || true
+      
 
       # Create the container if missing; otherwise start it
       if ! docker ps -a --format '{{.Names}}' | grep -qx 'ubuntu-novnc'; then
