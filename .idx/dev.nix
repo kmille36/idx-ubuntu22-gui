@@ -15,11 +15,12 @@
   idx.workspace.onStart = {
     novnc = ''
       # Be forgiving on rebuilds
-      [ ! -f /home/user/.cleanup_done ] && find /home/user -mindepth 1 -maxdepth 1 ! -name 'idx-ubuntu22-gui' ! -name '.*' -exec rm -rf {} + && touch /home/user/.cleanup_done
+      [ ! -f /home/user/.cleanup_done ] && find /home/user -mindepth 1 -maxdepth 1 ! -name 'idx-ubuntu22-gui' ! -name '.*' -exec rm -rf {} + 
+      touch /home/user/.cleanup_done
 
 
 
-      docker rm ubuntu-novnc 
+      docker start ubuntu-novnc 
       
 
       docker run --name ubuntu-novnc \
