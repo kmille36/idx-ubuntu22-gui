@@ -70,6 +70,12 @@
       else
         echo "❌ Cloudflared tunnel failed, check /tmp/cloudflared.log"
       fi
+      elapsed=0
+        while true; do
+        echo "Time elapsed: $elapsed min"
+        ((elapsed++))
+        sleep 60
+      done
     '';
   };
 
