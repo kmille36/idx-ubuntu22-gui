@@ -40,20 +40,7 @@
           -e SCREEN_DEPTH=24 \
           thuonghai2711/ubuntu-novnc-pulseaudio:22.04
       else
-        docker rm ubuntu-novnc || true
-        docker run --name ubuntu-novnc \
-          --shm-size 1g -d \
-          --cap-add=SYS_ADMIN \
-          -p 8080:10000 \
-          -e VNC_PASSWD=password \
-          -e PORT=10000 \
-          -e AUDIO_PORT=1699 \
-          -e WEBSOCKIFY_PORT=6900 \
-          -e VNC_PORT=5900 \
-          -e SCREEN_WIDTH=1024 \
-          -e SCREEN_HEIGHT=768 \
-          -e SCREEN_DEPTH=24 \
-          thuonghai2711/ubuntu-novnc-pulseaudio:22.04
+        docker start ubuntu-novnc || true
       fi
 
       # Install Chrome inside the container (sudo only here)
@@ -70,8 +57,8 @@
       nohup cloudflared tunnel --no-autoupdate --url http://localhost:8080 \
         > /tmp/cloudflared.log 2>&1 &
 
-      # Give it 5s to start
-      sleep 5
+      # Give it 10s to start
+      sleep 10
 
       # Extract tunnel URL from logs
       if grep -q "trycloudflare.com" /tmp/cloudflared.log; then
